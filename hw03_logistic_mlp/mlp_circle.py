@@ -23,7 +23,7 @@ if __name__ == '__main__':
     ####     DO NOT MODIFY    #####
     ###############################
     input_dim = 2  # Two inputs x1 and x2
-    output_dim = 1  # Two possible outputs
+    output_dim = 1  # The output is 0/1 binary classification prob.
 
     # TODO: change this to 0/1 to try two cases
     use_circle_quarter = 0
