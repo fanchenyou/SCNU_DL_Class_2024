@@ -50,6 +50,6 @@ if __name__ == '__main__':
         X, y, test_size=0.33, random_state=42)
 
     input_dim = 2  # Two inputs x1 and x2
-    output_dim = 1  # Two possible outputs
+    output_dim = 1  # The output is 0/1 binary classification prob.
     model = LogisticRegressionSimple(input_dim, output_dim)
     train(X_train, X_test, y_train, y_test, learning_rate=0.01, model=model)
