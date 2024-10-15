@@ -1,6 +1,11 @@
 import torch
 import torch.nn as nn
 
+# check
+# https://pytorch.org/docs/stable/generated/torch.nn.ELU.html#torch.nn.ELU
+# you may refer to Caffee, but not necessary
+# https://github.com/BVLC/caffe/blob/master/src/caffe/layers/elu_layer.cpp
+
 
 class MyELU(nn.Module):
     def __init__(self, alpha: float = 1.0):
