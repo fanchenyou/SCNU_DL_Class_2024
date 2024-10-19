@@ -23,9 +23,7 @@ class MyELU(nn.Module):
         self.X_exp = torch.exp(X_bottom)
         X_neg = self.alpha * (self.X_exp-1)
         self.mask = (X_bottom > 0)
-        # slope is 1 for positive values
         X_top = torch.zeros_like(X_bottom)
-        # slope is alpha for negative values
         X_top[self.mask] = X_bottom[self.mask]
         X_top[~self.mask] = X_neg[~self.mask]
         return X_top
