@@ -8,7 +8,7 @@ from torchvision.utils import save_image
 H_row = torch.zeros(1,200).float()
 H_col = torch.zeros(200,1).float()
 
-# In you assignment, print out your code here
+# In your HW submission, print out your code here
 # We want to move Su7 to 200 pixels up and left
 # TODO: assign H_row, H_col values
 # TODO: resize H_row and H_col to make the following code work
@@ -38,4 +38,4 @@ print(out1.size())
 out2 = F.conv2d(out1, H_col, groups=3,  stride=[1,1], padding=[100,0])
 print(out2.size())
 # save to image, you got a transformed XiaoMi Su7 Ultra, print your result in hw submission
-save_image(out2, 'su7_move.png')
+save_image(out2, 'su7_ultra_move.png')
