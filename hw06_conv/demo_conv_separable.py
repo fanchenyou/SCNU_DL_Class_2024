@@ -11,7 +11,7 @@ H_col = torch.zeros(200,1).float()
 # In your HW submission, print out your code here
 # We want to move Su7 to 200 pixels up and left
 # TODO: assign H_row, H_col values
-# TODO: resize H_row and H_col to make the following code work
+# TODO: repeat channels or resize both H_row and H_col to make the following code work
 
 
 ###############################################
