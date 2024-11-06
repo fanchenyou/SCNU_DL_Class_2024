@@ -13,16 +13,21 @@ from collections import Counter
 # put them in ./model
 tokenizer = AutoTokenizer.from_pretrained('./model')
 
+#####################################
+########## Do not modify ###########
+#####################################
 corpus = []
 for file_name in os.listdir('shakespeare-db'):
     #print(file_name)
     with open(os.path.join('shakespeare-db',file_name)) as file:
         corpus += [line.strip() for line in file]
-
+# tokenize sentences into tokens
+# do not modify
 sent_all = []
 for text in corpus:
     words = tokenizer.tokenize(text, add_special_tokens=True)
     sent_all += words
+
 
 ###########################
 # Generate Bi-Gram counter
