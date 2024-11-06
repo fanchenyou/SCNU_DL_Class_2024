@@ -14,22 +14,22 @@ debug = False
 ###############################################
 # generate Bi-Gram counter for training corpus
 ###############################################
-corpus_text = '''I want to play tennis. I like Chinese friends. I play with Chinese classmates. I learn tennis with friends.'''
+corpus_text = '''I play tennis. I like Chinese friends. I play tennis  with Chinese friends. I have friends who like tennis.'''
 token = nltk.word_tokenize(corpus_text)
 
 ###########################
 # Generate Bi-Gram counter
 ###########################
-unigrams = Counter(list(ngrams(token, 1)))
+unigrams = Counter([w[0] for w in list(ngrams(token, 1))])
 bigrams = Counter(list(ngrams(token, 2)))
-
 
 
 ###########################
 # generate query Bi-Gram
 ###########################
-query_text = "I play tennis with Chinese friends."
-query_token = nltk.word_tokenize(query_text)
+query_text_1 = "I play with Chinese friends"
+query_text_2 = "Chinese friends who like tennis"
+query_token = nltk.word_tokenize(query_text_1)
 query_bigram = list(ngrams(query_token, 2))
 
 # DO NOT MODIFY ABOVE
@@ -41,11 +41,7 @@ if debug:
     print(bigrams)
     print(query_bigram)
 
-
-######################################################
-# TODO: generate Uni-Gram word frequency table
-# TODO: generate Bi-Gram frequency table
-
 ###########################
-# TODO: lookup each query bigram in Bi-Gram frequency table and Uni-Gram frequency table
-# then compute the log likelihood
+# TODO: lookup each query bigram in each query_text
+# compute Uni-Counter[bg[0]] /  Bi-Counter[(bg[0],bg[1])]
+# convert to PPL and output
