@@ -14,7 +14,7 @@ debug = False
 ###############################################
 # generate Bi-Gram counter for training corpus
 ###############################################
-corpus_text = '''I play tennis. I like Chinese friends. I play tennis with Chinese friends. I have friends who like tennis.'''
+corpus_text = ''' I play tennis. I like Chinese friends. I talk with Chinese student. I play with tennis friends. I have friends who like tennis.'''
 token = nltk.word_tokenize(corpus_text)
 
 ###########################
