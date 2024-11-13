@@ -110,7 +110,7 @@ def main(args):
     ).to(device)
 
     # if you want to resume training, uncomment this
-    if True:
+    if False:
         if os.path.isfile(args.model_path):
             model = torch.load(args.model_path, map_location='cpu').to(device)
 

@@ -9,7 +9,7 @@ def generate(model, train_dataset, query_str='A', max_predict_len=100, device=No
     if len(query_str) == 0:
         query_str = 'A'
 
-    # encode query string to char tensor, you can print it out
+    # encode query string to word tensor, you can print it out
     query_input = train_dataset.get_tensor(query_str).to(device)
 
     # TODO: Explain, why we need pass [BEG] token into generate
@@ -22,7 +22,7 @@ def generate(model, train_dataset, query_str='A', max_predict_len=100, device=No
     if predicted[-1] == train_dataset.pos_end_token_id:
         predicted = predicted[:-1]
 
-    # convert token index back into character
+    # convert token index back into word string
     word_list = [train_dataset.get_word(ind) for ind in predicted]
     answer_str = ' '.join(word_list)
 
