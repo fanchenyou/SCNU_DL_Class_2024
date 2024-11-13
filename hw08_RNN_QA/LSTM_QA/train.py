@@ -159,7 +159,7 @@ if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument('--filename', type=str)
     argparser.add_argument('--model', type=str, default="gru", choices=['gru','lstm'])
-    argparser.add_argument('--n_epochs', type=int, default=100)
+    argparser.add_argument('--n_epochs', type=int, default=30)
     argparser.add_argument('--print_every', type=int, default=1)
     argparser.add_argument('--hidden_size', type=int, default=128)
     argparser.add_argument('--n_layers', type=int, default=2)
