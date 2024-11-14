@@ -40,20 +40,19 @@ def main(args):
         reader = csv.DictReader(csvfile)
         for row in reader:
             data_dict.append(row)
-    # visualize some data
+    # visualize some data, also you can vis in csv file
     # print(len(data_dict))
     # print(data_dict[:20])
 
     # for this example, we just use train data
+    # we save the vocabulary and data into a pickle file, which can be used for decoding in generate.py
     train_set = qa_dataset(data_dict)
     vocab_size = train_set.get_vocab_size()
     with open('saves/vocab.pkl','wb') as f:
         pickle.dump(train_set, f)
 
-
     train_loader = DataLoader(train_set, batch_size=1, shuffle=True, drop_last=True)
-    # validate_loader = DataLoader(val_set, batch_size=1, shuffle=False)
-    # test_loader = DataLoader(test_set, batch_size=1, shuffle=False)
+
 
     def train(model, optimizer, epoch):
         # accumulate gradient over batch
@@ -133,6 +132,8 @@ def main(args):
             loss_avg += loss
 
             if epoch % args.print_every == 0:
+                # you can change the questions which print out after each epoch
+                # check if some interesting answers can be generated
                 query_strs = ['Name a good sport.','Name a famous person','Tell me something funny']
                 responses = []
                 for query_str in query_strs:

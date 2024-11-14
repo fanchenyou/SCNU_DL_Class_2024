@@ -12,7 +12,7 @@ class QA_RNN(nn.Module):
 
         # TODO-Explain, why we need to separate encoder and decoder
         # Find the encoder-decoder architecture in lecture note
-        # Draw the task of our char-based question-answering
+        # TODO: Draw the task computational graph of our char-based question-answering
         self.embed = nn.Embedding(vocab_size, hidden_size)
         if self.model == "gru":
             self.encoder = nn.GRU(hidden_size, hidden_size, n_layers, batch_first=True, dropout=0.1)
