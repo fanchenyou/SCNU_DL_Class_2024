@@ -28,7 +28,7 @@ class qa_dataset(data.Dataset):
             # Compare uncased and cased vocabulary
             # read https://iq.opengenus.org/bert-cased-vs-bert-uncased/
             # explain which is better
-            words = [word.lower() for word in words]
+            words = [word.lower() for word in words]  # make words lower case
             sents += words
             answer_choice = ast.literal_eval(row['answers'])
             keys = [k for k, n in answer_choice.items()]
@@ -99,11 +99,12 @@ class qa_dataset(data.Dataset):
         # Each query has several candidate answers with counts
         answer_choice = ast.literal_eval(self.data[index]['answers'])
         keys = [k for k, n in answer_choice.items()]
+
         # we prefer long answers, take their length as prob.
-        num_samples = torch.tensor([len(k.split()) for k, n in answer_choice.items()]).float()
-        # We use counts as probability to select each answer
-        id2 = torch.multinomial(num_samples, 1)[0]
-        answer_str = keys[id2].strip()
+        answer_prob = torch.tensor([len(k.split()) for k, n in answer_choice.items()]).float()
+        answer_id = torch.multinomial(answer_prob, 1)[0]
+
+        answer_str = keys[answer_id].strip()
 
         # Encode question and answer string to tensor
         question_answer_tensors = [self.__get_str_tensor__(query_str),
