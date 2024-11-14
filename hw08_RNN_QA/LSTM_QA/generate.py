@@ -44,7 +44,7 @@ if __name__ == '__main__':
     # if you have a GPU, turn this on
     use_cuda = args.cuda and torch.cuda.is_available()
 
-    # if you have a MAC M1/2 chip, turn this on
+    # if you have a MAC M3/4 chip, turn this on
     use_mps = False  # args.mps or torch.backends.mps.is_available()
 
     if use_cuda:

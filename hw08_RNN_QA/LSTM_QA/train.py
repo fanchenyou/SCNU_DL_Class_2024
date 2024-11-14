@@ -22,9 +22,9 @@ def save(model):
 
 
 def main(args):
-    # if you have a GPU, turn this on
+    # if you have a GPU, turn this on, or pass --gpu in command line
     use_cuda = args.cuda and torch.cuda.is_available()
-    # if you have a MAC M1/2 chip, turn this on
+    # if you have a MAC M3/4 chip, turn this on
     use_mps = False  # args.mps or torch.backends.mps.is_available()
     if use_cuda:
         device = torch.device("cuda")
@@ -75,7 +75,7 @@ def main(args):
             output = model(question_tensor, answer_tensor[:, :-1], hidden)
             # TODO: Explain why use answer_tensor[:, 1:] as training target, hint: the first token is [BEG]
             loss = criterion(output.squeeze(0), answer_tensor[:, 1:].squeeze(0)) / args.batch_size
-            # hint: review teacher-force learning in lecture note
+            # hint: review teacher forcing in lecture note
 
             # TODO-Explain: understand why we use accumulative gradient method
             # read https://discuss.pytorch.org/t/why-do-we-need-to-set-the-gradients-manually-to-zero-in-pytorch/4903/20?u=alband
