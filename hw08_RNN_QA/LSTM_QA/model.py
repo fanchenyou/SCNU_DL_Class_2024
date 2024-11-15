@@ -12,7 +12,7 @@ class QA_RNN(nn.Module):
 
         # TODO-Explain, why we need to separate encoder and decoder
         # Find the encoder-decoder architecture in lecture note
-        # TODO: Draw the task computational graph of our char-based question-answering
+        # TODO: Draw the task computational graph of our word-based question-answering
         self.embed = nn.Embedding(vocab_size, hidden_size)
         if self.model == "gru":
             self.encoder = nn.GRU(hidden_size, hidden_size, n_layers, batch_first=True, dropout=0.1)
@@ -30,8 +30,8 @@ class QA_RNN(nn.Module):
         output_enc, hidden_enc = self.encoder(question_embed, hidden)
         output_dec, hidden_dec = self.decoder(answer_embed, hidden_enc)
 
-        pred_char_dec = self.fc(output_dec)
-        return pred_char_dec
+        pred_word_dec = self.fc(output_dec)
+        return pred_word_dec
 
     def generate(self, input_question, answer_init_token, pos_end_token, max_predict_len, device):
 
@@ -63,7 +63,7 @@ class QA_RNN(nn.Module):
             feat, hidden_cur = self.decoder(token_cur, hidden_cur)
             pred_token = self.fc(feat)
 
-            # The predicted char is from argmax the output probability of each char in vocab
+            # The predicted word is from argmax the output probability of each word in vocab
             top_i = torch.argmax(pred_token, dim=2)
             token_cur = self.embed(top_i)
 
