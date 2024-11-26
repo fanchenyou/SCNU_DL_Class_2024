@@ -17,7 +17,7 @@ class qa_dataset(data.Dataset):
         self.data = data_dict
         self.begin_token = '<BEG>'
         self.end_token = '<END>'
-        self.unknown_token = '<unk>'
+        self.unknown_token = '<UNK>'
         self.special_keys = [self.begin_token, self.end_token, self.unknown_token]
 
         sents = []
