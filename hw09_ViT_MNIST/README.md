@@ -16,7 +16,7 @@ data/MNIST/raw/
  train-images-idx3-ubyte 
  train-labels-idx1-ubyte
 ```
-or you turn on download=True in ipynb file
+or turn on download=True in ipynb file (slow for downloading via torch dataset API)
 
 ## Step 2: go through vit.ipynb step-by-step
 Answer all TODO explanations
