@@ -1,6 +1,9 @@
 # ViT: Visual Transformer Networks
 
 This repository is modified from https://github.com/peluche/ViT
+This provides you a toy example of implementing a tiny ViT model and training on MNIST data
+Recommend to run on a 4060+ GPU in Colab or AutoDL (highly recommend)
+Or, you can borrow a checkpoint file from your friend and skip the training step
 
 ## Step 1: download data from
 https://github.com/fgnt/mnist/tree/master
