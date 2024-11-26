@@ -1,26 +1,19 @@
 # ViT: Visual Transformer Networks
 
-Toy implementation of [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/pdf/2010.11929.pdf) on MNIST.
+This repository is modified from https://github.com/peluche/ViT
 
-## Chunking Images
-```python
-tiles = einops.rearrange(images, 'b c (h t1) (w t2) -> b (h w) c t1 t2', t1=tile_size, t2=tile_size)
+## Step 1: download data from
+https://github.com/fgnt/mnist/tree/master
+
+Uncompress gz and put in folder like
 ```
-![tiles](imgs/tiles.png)
+data/MNIST/raw/
+ t10k-images-idx3-ubyte
+ t10k-labels-idx1-ubyte
+ train-images-idx3-ubyte 
+ train-labels-idx1-ubyte
+```
+or you turn on download=True in ipynb file
 
-## Attention
-![attention_subject](imgs/attention_subject.png)
-![attention_0](imgs/attention_0.png)
-![attention_1](imgs/attention_1.png)
-
-## Positional Embeddings
-![learned_positional_embeddings](imgs/learned_positional_embeddings.png)
-
-## Misslabelled Images
-![misslabelled](imgs/misslabelled.png)
-
-## Confusion Matrix
-![confusion_matrix](imgs/confusion_matrix.png)
-
-## Heatmap
-![heatmap](imgs/heatmap.png)
+## Step 2: go through vit.ipynb step-by-step
+Answer all TODO explanations
